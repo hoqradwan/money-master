@@ -1,0 +1,23 @@
+.header-area {
+  color: #31a5ac;
+}
+.calculation-area {
+  background-color: #f8f8f8;
+}
+.income-input {
+  width: 150px;
+  height: 25px;
+  background-color: #dcdcdc;
+}
+.btn-color {
+  background-color: #59a5ff;
+}
+.save-input {
+  width: 100px;
+  height: 25px;
+  background-color: #dcdcdc;
+}
+.save-btn {
+  background-color: #59a5ff;
+  padding: 0 40px;
+}
