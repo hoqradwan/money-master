@@ -1,10 +1,11 @@
+// handle calculate button
 document.getElementById('calc-btn').addEventListener('click', function () {
 
     const incomeInput = document.getElementById('income-input');
     const incomeText = incomeInput.value;
     const income = parseFloat(incomeText);
-
-
+     
+    // validation
     if (income >= 0) {
         calculation();
     }
@@ -21,6 +22,7 @@ function getCost(inputName) {
     costInput.value = '';
     return cost;
 }
+// total expenses and balance calculation
 function calculation() {
     const totalExpense =
         getCost('food') +
@@ -43,7 +45,7 @@ function calculation() {
         expenseError.style.display = 'block';
     }
 }
-
+// handle save button
 document.getElementById('save-btn').addEventListener('click', function () {
     const balanceText = document.getElementById('balance-money');
     const balanceAmountText = balanceText.innerText;
@@ -52,7 +54,8 @@ document.getElementById('save-btn').addEventListener('click', function () {
     const incomeInput = document.getElementById('income-input');
     const incomeText = incomeInput.value;
     const income = parseFloat(incomeText);
-
+    
+// savings calculation
     const saveMoney = getCost('save');
     const saveAmount = (income * saveMoney) / 100;
     if (saveAmount <= balanceAmount) {

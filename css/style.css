@@ -21,6 +21,8 @@
   background-color: #59a5ff;
   padding: 0 40px;
 }
+
+/* error display none */
 #input-error{
   display: none;
 }
