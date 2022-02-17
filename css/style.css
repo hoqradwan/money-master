@@ -4,7 +4,7 @@
 .calculation-area {
   background-color: #f8f8f8;
 }
-.income-input {
+.input-bg {
   width: 150px;
   height: 25px;
   background-color: #dcdcdc;
@@ -12,6 +12,7 @@
 .btn-color {
   background-color: #59a5ff;
 }
+/* save section style */
 .save-input {
   width: 100px;
   height: 25px;
