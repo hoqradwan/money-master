@@ -5,7 +5,7 @@ document.getElementById('calc-btn').addEventListener('click', function () {
     const incomeText = incomeInput.value;
     const income = parseFloat(incomeText);
      
-    // validation
+    // income amount error handle
     if (income >= 0) {
         calculation();
     }
@@ -13,7 +13,6 @@ document.getElementById('calc-btn').addEventListener('click', function () {
         const inputError = document.getElementById('input-error');
         inputError.style.display = 'block';
     }
-  
 })
 function getCost(inputName) {
     const costInput = document.getElementById(inputName + '-input');
