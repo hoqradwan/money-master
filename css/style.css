@@ -21,3 +21,12 @@
   background-color: #59a5ff;
   padding: 0 40px;
 }
+#input-error{
+  display: none;
+}
+#save-error{
+  display: none;
+}
+#expense-error{
+  display: none;
+}

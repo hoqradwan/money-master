@@ -41,6 +41,8 @@
                         <p class="pe-2">Clothes</p>
                         <input id="clothes-input" type="number" class="form-control income-input">
                     </div>
+                    <p id="input-error"  class="text-center text-danger">Input cannot be a negative number</p>
+                    <p id="expense-error"  class="text-center text-danger">Expenses cannot be more than income</p>
                     <div class="text-center">
                         <button id="calc-btn" class="btn btn-color text-white mt-2">Calculate</button>
                     </div>
@@ -62,6 +64,7 @@
                             <button id="save-btn" class="btn save-btn text-white">Save</button>
                         </div>
                     </div>
+                    <p id="save-error"  class="text-center text-danger">saving amount cannot be more than balance</p>
                     <div class="d-flex justify-content-center fw-bold mt-3">
                         <p class="pe-2">Saving Amount:</p>
                         <p id="save-money">00</p>

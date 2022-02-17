@@ -1,50 +1,69 @@
 document.getElementById('calc-btn').addEventListener('click', function () {
+
     const incomeInput = document.getElementById('income-input');
-    const incomeInputText = incomeInput.value;
-    const income = parseFloat(incomeInputText);
-    incomeInput.value = '';
+    const incomeText = incomeInput.value;
+    const income = parseFloat(incomeText);
 
-    const foodInput = document.getElementById('food-input');
-    const foodInputText = foodInput.value;
-    const foodCost = parseFloat(foodInputText);
-    foodInput.value = '';
 
-    const rentInput = document.getElementById('rent-input');
-    const rentInputText = rentInput.value;
-    const rentCost = parseFloat(rentInputText);
-    rentInput.value = '';
-
-    const clothesInput = document.getElementById('clothes-input');
-    const clothesInputText = clothesInput.value;
-    const clothesCost = parseFloat(clothesInputText);
-    clothesInput.value = '';
-
-    const totalExpense = foodCost + rentCost + clothesCost;
-    const totalExpenseText = document.getElementById('total-money');
-    totalExpenseText.innerText = totalExpense;
-    const balance = income - totalExpense;
-    const balanceText = document.getElementById('balance-money');
-    balanceText.innerText = balance;
-
+    if (income >= 0) {
+        calculation();
+    }
+    else {
+        const inputError = document.getElementById('input-error');
+        inputError.style.display = 'block';
+    }
+  
 })
-// function calculateBalance(){
+function getCost(inputName) {
+    const costInput = document.getElementById(inputName + '-input');
+    const costText = costInput.value;
+    const cost = parseFloat(costText);
+    costInput.value = '';
+    return cost;
+}
+function calculation() {
+    const totalExpense =
+        getCost('food') +
+        getCost('rent') +
+        getCost('clothes');
 
-// }
+    const incomeInput = document.getElementById('income-input');
+    const incomeText = incomeInput.value;
+    const income = parseFloat(incomeText);
+    if (totalExpense < income) {
+        const totalExpenseText = document.getElementById('total-money');
+        totalExpenseText.innerText = totalExpense;
+        const balanceAmount = income - totalExpense;
+        const balanceText = document.getElementById('balance-money');
+        balanceText.innerText = balanceAmount;
+    }
+    else {
+        getCost('income');
+        const expenseError = document.getElementById('expense-error');
+        expenseError.style.display = 'block';
+    }
+}
 
 document.getElementById('save-btn').addEventListener('click', function () {
-    const saveInput = document.getElementById('save-input');
-    const saveInputText = saveInput.value;
-    const saveMoney = parseFloat(saveInputText);
-    const balance = document.getElementById('balance-money');
-    const balanceText = balance.innerText;
-    const balanceAmount = parseFloat(balanceText);
-    const saveAmount = (balanceAmount * saveMoney) / 100;
-    const savings = document.getElementById('save-money');
-    savings.innerText = saveAmount;
-    saveInput.value = '';
-    const remainAmount = balanceAmount - saveAmount;
-    const remaining = document.getElementById('remain-money');
-    remaining.innerText = remainAmount;
-    
+    const balanceText = document.getElementById('balance-money');
+    const balanceAmountText = balanceText.innerText;
+    const balanceAmount = parseFloat(balanceAmountText);
 
+    const incomeInput = document.getElementById('income-input');
+    const incomeText = incomeInput.value;
+    const income = parseFloat(incomeText);
+
+    const saveMoney = getCost('save');
+    const saveAmount = (income * saveMoney) / 100;
+    if (saveAmount <= balanceAmount) {
+        const savings = document.getElementById('save-money');
+        savings.innerText = saveAmount;
+        const remainAmount = balanceAmount - saveAmount;
+        const remaining = document.getElementById('remain-money');
+        remaining.innerText = remainAmount;
+    }
+    else {
+        const saveError = document.getElementById('save-error');
+        saveError.style.display = 'block';
+    }
 })
